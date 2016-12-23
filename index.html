@@ -10,38 +10,193 @@
   <meta name="author" content="McKenna Rowe">
 
   <link rel="stylesheet" href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-
+  <link rel="stylesheet" href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/mystyles.css" rel="stylesheet" media="screen">
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
-    <script src="js/scripts.js"></script>
 </head>
 
 <body>
+
+<!-- navbar--> 
+<div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
-		<header class="page-header">
-			<ul class="nav nav-pills pull-right">
+<!-- this make the nav toggle to the hamburger menu when you go to mobile -->
+
+
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+
+	<a href="#" class="navbar-brand text-muted">Hello</a>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="#">One</a></li>
 				<li><a href="#">Two</a></li>
-				<li><a href="#">Three</a></li>
+				<!-- data target keeps values intact so use instead of href -->
+				<li class="dropdown"><a data-toggle="dropdown" data-target="#">Three <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+				<li><a href="#">you</a></li>
+				<li><a href="#">me</a></li>
+				<li><a href="#">them</a></li>
+				<li class="divider"></li>
+				<li ><a href="#">more things</a></li>
+				</ul>
+				</li>
 			</ul>
-			<h3>Howdy</h3>
-		</header>
-	
+		</div>
+	</div>
+</div>
+<!-- end navbar -->
 
-		<div class="jumbotron">
-		<h1>Jumbotron Content</h1>
-		<p class="lead">We're like, learning about boostrap and some junk.</p>
-			<div class="btn-group">
-			<a href="#" class="btn btn-success btn-lg">Bootstrap</a> <a href="#" class="btn btn-warning btn-lg">Facebook</a>
+
+<!-- carousel--> 
+<div id="myCarousel" class="carousel slide jumbotron">
+<div class="container">
+<!--carousel indicators -->
+<ol class="carousel-indicators">
+<li class="active" data-target="#myCarousel" data-slide-to="0"></li>
+<li data-target="#myCarousel" data-slide-to="1"></li>
+<li data-target="#myCarousel" data-slide-to="2"></li>
+</ol>
+
+	<div class="carousel-inner">
+	<!--important to note active on carousel item otherwise nothing will display -->
+		<div class="item active">
+			<h1>Carousel Content 1</h1>
+			<p class="lead">Check out this carousel slide woohoo.</p>
+				<p class="btn-group">
+				<!-- below im hiding the fb button on extra small devices -->
+				<a href="#" class="btn btn-success btn-lg">Neato</a> 
+				</p>
+		</div>
+		<div class="item">
+			<h1>Carousel Content 2</h1>
+			<p class="lead">Check out this carousel slide too.</p>
+				<p class="btn-group">
+				<!-- below im hiding the fb button on extra small devices -->
+				<a href="#" class="btn btn-success btn-lg">Wow</a> 
+				</p>
+		</div>
+		<div class="item">
+			<h1>Carousel Content 3</h1>
+			<p class="lead">This carousel slide is the best.</p>
+				<p class="btn-group">
+				<!-- below im hiding the fb button on extra small devices -->
+				<a href="#" class="btn btn-success btn-lg">Fuck</a> 
+				</p>
+		</div>
+	</div>
+</div>
+<!--add this anchor element right befor ethe closing div of the carousel and add the #myCarousel which targets the id above -->
+<a href="#myCarousel" class="left carousel-control" data-slide="prev"><span class="icon-prev"></span></a>
+<a href="#myCarousel" class="right carousel-control" data-slide="next"><span class="icon-next"></span></a>
+</div>
+<!-- end carousel--> 
+
+<!-- modal --> 
+<div class="modal fade" id="textModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4>Text me the link</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-inline">
+					<div class="form-group">
+						<label class="sr-only" for="mobilePhone">Mobile Phone</label>
+						<input type="tel" class="form-control" id="mobilePhone" placeholder="Mobile Phone">
+					</div>
+					<div class="form-group">
+						<select class="form-control">
+						<option>iOs</option>
+						<option>Android</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">send me the link</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end modal--> 
+
+
+	<div class="container">
+		
+
+			<div class="jumbotron">
+			<h1>Jumbotron Content</h1>
+			<p class="lead">WI'm leaving this in below the carousel because I like this jumbotron feature.</p>
+				<p class="btn-group">
+				<!-- below im hiding the fb button on extra small devices -->
+				<a href="#" class="btn btn-success btn-lg">Bootstrap</a> <a href="#textModal" class="btn btn-warning btn-lg hidden-xs" data-toggle="modal">Text Me</a>
+				</p>
+			</div>
+
+<!--always begin a grid with a row div -->
+		<div class="row">
+<!--boostrap is based on 12 coclumn default grid so divide that by columns you want and use that class; below we set 3 columns by dividisng 12 by 4 -->
+			<div class="col-sm-4">
+			<b class="glyphicon glyphicon-camera"></b>
+			<h2>this is my first header</h2>
+			<p>some content goes in here, as we can easily see</p>
+			</div>
+			
+			<div class="col-sm-4">
+			<b class="glyphicon glyphicon-user"></b>
+			<h2>this is my second header</h2>
+			<p>some content goes in here, as we can easily see</p>
+			</div>
+
+			<div class="col-sm-4">
+			<b class="glyphicon glyphicon-cloud"></b>
+			<h2>this is my third header</h2>
+			<p>some content goes in here, as we can easily see</p>
 			</div>
 		</div>
 
-		<div>
-		<p>&copy; 2016 MWR and nerds, LLC. All rights reserved.</p>
-		</div>
+	<hr>
 
+	<div class="row">
+		<div class="col-sm-6">
+		<h3>some more junk</h3>
+		<p>it's really good for me to be going through this from the code level</p>
+			<div class="row">
+
+			<!-- this push and pull classes thing is really cool; will refactor your content responsively -->
+				<div class="col-sm-6 col-md-push-6">
+					<img class="img-responsive" src="https://s-media-cache-ak0.pinimg.com/originals/4d/0c/9d/4d0c9deece33de55ad09dc59d4994b23.jpg">
+				</div>
+				<div class="col-sm-6 col-md-pull-6">
+					<p>Doremon is so cute! </p>
+				</div>
+			</div>
+
+
+		</div>
+		<div class="col-sm-6">
+		<h3>even more junk</h3>
+		<p>isn't this fun?</p>
+		</div>
 	</div>
 
+
+			
+
+<hr>
+			<div>
+			<p>&copy; 2016 MWR and nerds, LLC. All rights reserved.</p>
+			</div>
+
+		</div>
+	</div>
+
+ <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
